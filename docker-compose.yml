@@ -1,0 +1,36 @@
+services:
+  app:
+    container_name: reactivated-example-app-dev
+    build:
+      context: .
+      args:
+        UID: "${UID}"
+    command: >
+      bash -c "
+      trap 'echo SIGTERM received, shutting down...; exit' SIGTERM;
+      while true; do
+        sleep 2;
+      done
+      "
+    volumes:
+      - /app/node_modules
+      - /app/.venv
+      - .:/app
+    env_file:
+      - ./.env
+    ports:
+      - ${DJANGO_PORT}:${DJANGO_PORT}
+  psql:
+    image: postgres:15.7
+    container_name: reactivated-example-psql-dev
+    user: "${UID}"
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - ./.postgresql/data:/var/lib/postgresql/data

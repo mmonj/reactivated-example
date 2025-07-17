@@ -1,0 +1,16 @@
+{
+  "name": "reactivated-example",
+  "version": "1.0.0",
+  "description": "A development environment configured for GitHub Codespaces with specific Python and Node.js versions.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "python manage.py runserver 0.0.0.0:${DJANGO_PORT:?}",
+    "build": "python manage.py generate_client_assets && python manage.py build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "reactivated": "^0.47.0"
+  }
+}
