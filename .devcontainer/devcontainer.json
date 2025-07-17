@@ -17,7 +17,7 @@
         "dbaeumer.vscode-eslint"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "./venv/bin/python",
+        "python.defaultInterpreterPath": "/app/.venv/bin/python",
         "python.formatting.provider": "black",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
