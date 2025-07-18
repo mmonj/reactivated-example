@@ -1,0 +1,9 @@
+{
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "mikoz.black-py",
+    },
+    "[javascript][javascriptreact][typescript][typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
